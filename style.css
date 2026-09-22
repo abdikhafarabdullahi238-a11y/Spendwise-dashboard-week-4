@@ -1,0 +1,35 @@
+:root {
+  --brand-color: #0e7490;
+  --accent-color: #f59e0b;
+  --surface-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --primary-text: #1e293b;
+  --secondary-text: #64748b;
+}
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+.dashboard { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; color: var(--primary-text); }
+.sidebar { background: var(--brand-color); color: white; padding: 20px; display: flex; flex-direction: column; gap: 20px; }
+.sidebar nav { display: flex; flex-direction: column; gap: 12px; }
+.sidebar a { color: white; text-decoration: none; padding: 10px; border-radius: 6px; display: flex; align-items: center; gap: 10px; }
+.sidebar a.active, .sidebar a:hover { background: rgba(255,255,255,0.2); }
+.main { display: flex; flex-direction: column; }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: var(--card-bg); border-bottom: 1px solid #ddd; }
+.header p { color: var(--secondary-text); }
+.user { background: var(--accent-color); padding: 8px 16px; border-radius: 20px; color: white; font-weight: bold; }
+.content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; background: var(--surface-color); }
+.card { background: var(--card-bg); padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; flex-direction: column; gap: 8px; border-top: 4px solid var(--accent-color); transition: transform 200ms ease, box-shadow 200ms ease; }
+.card span { color: var(--secondary-text); font-size: 0.9em; }
+.card:hover, .card:focus { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); outline: 2px solid var(--brand-color); }
+@media (max-width: 768px) {
+  .dashboard { grid-template-columns: 1fr; }
+  .sidebar { flex-direction: row; align-items: center; justify-content: space-between; }
+  .sidebar nav { flex-direction: row; flex-wrap: wrap; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-color: #0f172a;
+    --card-bg: #1e293b;
+    --primary-text: #f1f5f9;
+    --secondary-text: #94a3b8;
+  }
+}
